@@ -1,0 +1,19 @@
+.filters {
+  width: 20%;
+  height: 86vh;
+  margin: 10px;
+  background-color: #343a3f;
+  color: white;
+  padding: 10px;
+}
+
+.title-font {
+  font-size: 30px;
+}
+
+.products {
+  width: 78%;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}

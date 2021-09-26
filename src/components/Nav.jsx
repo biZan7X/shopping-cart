@@ -1,5 +1,11 @@
 import React from "react";
-import { Navbar, Container, NavDropdown, FormControl } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Dropdown,
+  FormControl,
+  Badge,
+} from "react-bootstrap";
 export default function Nav() {
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -12,9 +18,16 @@ export default function Nav() {
           <FormControl type="text" />
         </Navbar.Text>
 
-        <NavDropdown title="Cart" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#">Empty</NavDropdown.Item>
-        </NavDropdown>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Cart
+            <Badge>10</Badge>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Cart is empty!</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </Container>
     </Navbar>
   );

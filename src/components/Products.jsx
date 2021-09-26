@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
 import ProductCard from "./ProductCard";
 
 import styles from "./styles.css";
 
-export default function Products({ products }) {
+function Products({ products, filter }) {
+  useEffect(() => {
+    console.log(filter);
+  }, [filter]);
   return (
     <div className="products">
       {products.map((prod) => (
@@ -13,3 +17,9 @@ export default function Products({ products }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return { filter: state.filter, products: state.products };
+};
+
+export default connect(mapStateToProps)(Products);

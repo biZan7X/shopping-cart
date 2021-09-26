@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 
 import ProductCard from "./ProductCard";
 
-import { resetProducts, setProducts } from "../actions";
-
 import styles from "./styles.css";
 
 function Products({ products, filter }) {
-  const { order, delivery, stock, rating } = filter;
+  const { order, delivery, stock, rating, searchTerm } = filter;
 
   const transformProducts = () => {
     let filteredProducts = products;
@@ -24,6 +22,11 @@ function Products({ products, filter }) {
       filteredProducts = filteredProducts.filter((prod) => prod.inStock);
 
     filteredProducts = filteredProducts.filter((prod) => prod.ratings > rating);
+
+    if (searchTerm)
+      filteredProducts = filteredProducts.filter((prod) =>
+        prod.name.includes(searchTerm)
+      );
 
     return filteredProducts;
   };

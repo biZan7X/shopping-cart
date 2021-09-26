@@ -5,6 +5,7 @@ import {
   setDelivery,
   setStock,
   setRating,
+  setSearchTerm,
   clearFilter,
 } from "../actions";
 
@@ -13,6 +14,7 @@ const init = {
   delivery: false,
   stock: false,
   rating: 0,
+  searchTerm: "",
 };
 
 export default createReducer(
@@ -24,6 +26,7 @@ export default createReducer(
     }),
     [setStock]: (state, payload) => ({ ...state, stock: !state.stock }),
     [setRating]: (state, payload) => ({ ...state, rating: payload }),
+    [setSearchTerm]: (state, payload) => ({ ...state, searchTerm: payload }),
     [clearFilter]: (state, payload) => init,
   },
   init

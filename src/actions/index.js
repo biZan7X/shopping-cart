@@ -16,6 +16,8 @@ const setStock = createAction("SETSTOCK");
 
 const setRating = createAction("SETRATING");
 
+const setSearchTerm = createAction("SETSEARCHTERM");
+
 const clearFilter = createAction("CLEARFILTER");
 
 export {
@@ -25,5 +27,6 @@ export {
   setDelivery,
   setStock,
   setRating,
+  setSearchTerm,
   clearFilter,
 };

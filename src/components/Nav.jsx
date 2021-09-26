@@ -6,7 +6,15 @@ import {
   FormControl,
   Badge,
 } from "react-bootstrap";
-export default function Nav() {
+import { connect } from "react-redux";
+
+import { setSearchTerm } from "../actions";
+
+function Nav({ filter, setSearchTerm }) {
+  const searchHandler = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
@@ -15,7 +23,12 @@ export default function Nav() {
         </Navbar.Brand>
 
         <Navbar.Text className="m-auto" style={{ width: 500 }}>
-          <FormControl type="text" />
+          <FormControl
+            type="text"
+            placeholder="Search for a product"
+            value={filter.searchTerm}
+            onChange={searchHandler}
+          />
         </Navbar.Text>
 
         <Dropdown>
@@ -32,3 +45,9 @@ export default function Nav() {
     </Navbar>
   );
 }
+
+const mapStateToProps = ({ filter }) => {
+  return { filter: filter };
+};
+
+export default connect(mapStateToProps, { setSearchTerm })(Nav);
